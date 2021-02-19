@@ -12,6 +12,10 @@
     color: black;
 }
 
+.active-link {
+    border-bottom: 4px solid aquamarine;
+}
+
 .nav-login {
     margin-left: auto;
     display: flex;
@@ -33,4 +37,24 @@
     text-transform: uppercase;
     text-decoration: none;
     color: black;
+}
+
+@media screen and (max-width: 800px) {
+    .nav {
+        font-size: 0.9em;
+    }
+    .nav-link {
+        margin: 1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .nav {
+        width: 96%;
+        flex-direction: column-reverse;
+    }
+
+    .nav-link {
+        margin: 0.2rem;
+    }
 }

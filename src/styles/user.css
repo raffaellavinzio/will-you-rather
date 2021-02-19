@@ -1,4 +1,4 @@
-.question {
+.user {
     background-color: aliceblue;
     padding: 1rem;
     border: 4px solid aquamarine;
@@ -9,55 +9,46 @@
     margin-bottom: 0;
 }
 
-.question-title {
-    padding: 1rem;
-    border-bottom: 10px solid aquamarine;
-}
-
-.question-body {
+.user-body {
     padding: 1rem;
     display: flex;
 }
 
-.question-body img {
+.user-body img {
     width: 30%;
     background-color: white;
     margin-right: 2rem;
 }
 
-.question-body div {
-    width: 70%;
+.user-score {
+    max-width: 4rem;
+    padding: 0.5rem;
+    text-align: center;
+    margin-left: auto;
+    background-color: aquamarine;
 }
 
-.question-link {
-    display: inline-block;
-    padding: 1rem 0.5rem;
+.user-count {
+    font-size: 1em;
     background-color: aquamarine;
-    width: 90%;
-    color: black;
-    text-decoration: none;
-    text-align: center;
-    text-transform: uppercase;
-    border-radius: 5px;
+    border-radius: 50%;
+    padding: 0.2em;
 }
+
 
 @media screen and (max-width: 800px) {
-    .question {
+    .user {
         font-size: 0.9em;
-    }
-
-    .question-body div {
-        width: 100%;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .question {
+    .user {
         width: 96%;
         padding: 0;
     }
 
-    .question-body img {
+    .user-body img {
         margin-right: 1rem;
     }
     

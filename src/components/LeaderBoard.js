@@ -1,27 +1,32 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import User from './User'
+import '../styles/leaderboard.css'
 
 class LeaderBoard extends Component {
 
   render() { 
- 
+    const { users } = this.props
+
     return (
-      <div >
-        <h1>Would You Rather</h1>
-        <ul>
-            {this.props.userIds.map(id => 
-                <li key={id}>
-                  {id}
-                    {/* <User id={id} /> */}
-                </li>)}
+      <div className='leaderboard'>
+        <ul className="leaderboard-list">
+        {users.map(user => 
+                <li className="leaderboard-item" key={user.id}>
+                    <User id={user.id} />
+                </li>
+                )}
         </ul>
       </div>
   );}
 }
 
 function mapStateToProps( { users } ){
-    return { userIds: Object.keys(users)}
+
+    return {
+        users : Object.values(users).sort((a, b) => 
+        ((Object.keys(a.answers).length + a.questions.length) < (Object.keys(b.answers).length + b.questions.length) ) ? 1 : -1)
+    }
   }
 
 export default connect(mapStateToProps)(LeaderBoard)

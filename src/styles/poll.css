@@ -19,3 +19,10 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 800px) {
+    .poll {
+        font-size: 0.9em;
+    }
+}
+

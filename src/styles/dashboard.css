@@ -14,7 +14,7 @@
     border-bottom-right-radius: 10px;
     background-color: aliceblue;
     text-transform: uppercase;
-    font-size: 1.4rem;
+    font-size: 1.4em;
 }
 
 .active {
@@ -31,4 +31,15 @@
 .dashboard-item {
     margin: 0.5rem;
     padding: 0.5rem;
+}
+
+
+@media screen and (max-width: 600px) {
+    .dashboard {
+        width: 96%;
+    }
+
+    .dashboard-btn {
+        font-size: 1em;
+    }
 }

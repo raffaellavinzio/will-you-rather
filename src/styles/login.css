@@ -1,0 +1,31 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 2rem auto;
+}
+
+.login-select {
+    height: 2rem;
+    background-color: aliceblue;
+}
+
+.login-btn {
+    height: 3rem;
+    border-color:aquamarine;
+    outline: none;
+    background-color: aquamarine;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    font-size: 1.4em;
+}
+
+@media screen and (max-width: 600px) {
+    .login {
+        width: 96%;
+        padding: 0;
+    }
+    
+}

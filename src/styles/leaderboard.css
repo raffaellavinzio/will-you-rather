@@ -1,0 +1,24 @@
+.leaderboard {
+    margin: 2rem auto;
+    width: 80%;
+    border: 4px solid aquamarine;
+    box-shadow: 0 0 10px lightgray;
+}
+
+.leaderboard-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;;
+}
+
+.leaderboard-item {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+
+@media screen and (max-width: 600px) {
+    .leaderboard {
+        width: 96%;
+    }
+}

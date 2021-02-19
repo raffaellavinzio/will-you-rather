@@ -1,10 +1,14 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { handleAnswerQuestion } from '../actions/questions'
+import PollMetrics from './PollMetrics'
 import '../styles/poll.css'
 
 class Poll extends Component {
-    state = {selectedValue: 'optionOne'};
+    state = {
+      selectedValue: 'optionOne',
+      showMetrics: true
+    };
 
     handleChange = (e) => {
         this.setState(() => ({
@@ -20,7 +24,8 @@ class Poll extends Component {
         dispatch(handleAnswerQuestion(authedUser, id, selectedValue))
 
         this.setState(() => ({
-            selectedValue: 'optionOne'
+            selectedValue: 'optionOne',
+            showMetrics: false
         }))
     }
 
@@ -28,6 +33,9 @@ class Poll extends Component {
 
     const {optionOne, optionTwo, id} = this.props
 
+    if (!this.state.showMetrics) {return (<PollMetrics />) }
+
+    if (this.state.showMetrics) {
     return (
       <form className='poll' onSubmit={(e) => this.handleSubmit(e, id)}>
         <div className='poll-radio' onChange={this.handleChange}>
@@ -36,7 +44,7 @@ class Poll extends Component {
         </div>
         <button className='poll-btn' type='submit'>Submit</button>
       </form>
-  );}
+  );}}
 }
 
 
@@ -45,8 +53,8 @@ function mapStateToProps( { authedUser, questions }, { id } ){
     const question = questions[id]
 
     return {
-        optionOne: question.optionOne.text,
-        optionTwo: question.optionTwo.text,
+        optionOne: question && question.optionOne.text,
+        optionTwo: question && question.optionTwo.text,
         id,
         authedUser
     }

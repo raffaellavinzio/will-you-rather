@@ -2,12 +2,16 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import Poll from './Poll'
+import { NotFound } from './NotFound'
 import '../styles/question.css'
 
 class Question extends Component {
 
   render() { 
-    const {author, avatar, text, id, match} = this.props
+    const { author, avatar, text, id, match, questionIds } = this.props
+
+    if (! questionIds.includes(match.params.id) && ! questionIds.includes(id)  ) 
+      { return ( <NotFound /> ) }
 
     return (
       <div className='question'>
@@ -28,12 +32,13 @@ class Question extends Component {
 function mapStateToProps( { users, questions }, { id, match } ){
 
     const question = id ? questions[id] : questions[match.params.id]
+    const questionIds = Object.keys(questions)
 
     return {
-        author: users[question.author].name,
-        avatar: users[question.author].avatarURL,
-        text: question.optionOne.text
+        author: question && users[question.author]  && users[question.author].name,
+        avatar: question && users[question.author] && users[question.author].avatarURL,
+        text: question && question.optionOne.text,
+        questionIds
     }
   }
-
 export default withRouter(connect(mapStateToProps)(Question))
