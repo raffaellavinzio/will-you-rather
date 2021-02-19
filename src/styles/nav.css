@@ -1,0 +1,36 @@
+.nav {
+    border-bottom: 4px solid aquamarine;
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.nav-link {
+    margin: 2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-login {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.nav-login-avatar {
+    padding: 1rem;
+    border-radius: 50%;
+    max-width: 3rem;
+}
+
+.nav-login-name {
+    margin-right: 3rem;
+}
+
+.nav-logout {
+    margin-right: 2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+}
