@@ -1,26 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import User from './User';
 import '../styles/leaderboard.css';
 
-class LeaderBoard extends Component {
-  render() {
-    const { users } = this.props;
-
-    return (
-      <div className="leaderboard">
-        <ul className="leaderboard-list">
-          {users.map((user) => (
-            <li className="leaderboard-item" key={user.id}>
-              <User id={user.id} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
-}
+const LeaderBoard = ({ users }) => (
+  <div className="leaderboard">
+    <ul className="leaderboard-list">
+      {users.map((user) => (
+        <li className="leaderboard-item" key={user.id}>
+          <User id={user.id} />
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 function mapStateToProps({ users }) {
   return {
@@ -34,7 +28,7 @@ function mapStateToProps({ users }) {
 }
 
 LeaderBoard.propTypes = {
-  users: PropTypes.arrayOf.isRequired,
+  users: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default connect(mapStateToProps)(LeaderBoard);

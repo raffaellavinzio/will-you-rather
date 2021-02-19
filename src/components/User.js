@@ -45,8 +45,8 @@ function mapStateToProps({ users }, { id, match }) {
 User.propTypes = {
   author: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
-  answers: PropTypes.arrayOf.isRequired,
-  questions: PropTypes.arrayOf.isRequired,
+  answers: PropTypes.number.isRequired,
+  questions: PropTypes.number.isRequired,
 };
 
 export default withRouter(connect(mapStateToProps)(User));

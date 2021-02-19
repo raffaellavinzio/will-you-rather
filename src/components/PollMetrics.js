@@ -78,9 +78,9 @@ function mapStateToProps({ users, questions, authedUser }, { id, match }) {
 PollMetrics.propTypes = {
   optionOneText: PropTypes.string.isRequired,
   optionTwoText: PropTypes.string.isRequired,
-  optionOneVotes: PropTypes.string.isRequired,
-  optionTwoVotes: PropTypes.string.isRequired,
-  totalVotes: PropTypes.string.isRequired,
+  optionOneVotes: PropTypes.number.isRequired,
+  optionTwoVotes: PropTypes.number.isRequired,
+  totalVotes: PropTypes.number.isRequired,
   loggedUserVotedOption: PropTypes.string.isRequired,
 };
 

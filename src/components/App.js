@@ -13,8 +13,9 @@ import Nav from './Nav';
 
 class App extends Component {
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(handleInitialData());
+    // eslint-disable-next-line no-shadow
+    const { handleInitialData } = this.props;
+    handleInitialData();
   }
 
   render() {
@@ -58,8 +59,8 @@ function mapStateToProps({ authedUser }) {
 }
 
 App.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  handleInitialData: PropTypes.func.isRequired,
   isAuth: PropTypes.bool.isRequired,
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { handleInitialData })(App);

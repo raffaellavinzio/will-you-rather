@@ -74,10 +74,15 @@ function mapStateToProps({ users, authedUser }) {
   };
 }
 
+Nav.defaultProps = {
+  loggedUserAvatar: '',
+  loggedUser: '',
+};
+
 Nav.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  loggedUserAvatar: PropTypes.string.isRequired,
-  loggedUser: PropTypes.string.isRequired,
+  loggedUserAvatar: PropTypes.string,
+  loggedUser: PropTypes.string,
   isAuth: PropTypes.bool.isRequired,
 };
 

@@ -81,8 +81,10 @@ function mapStateToProps({ questions, authedUser }) {
 }
 
 Dashboard.propTypes = {
-  answeredQuestionIds: PropTypes.arrayOf.isRequired,
-  unansweredQuestionIds: PropTypes.arrayOf.isRequired,
+  answeredQuestionIds: PropTypes.arrayOf(PropTypes.string.isRequired)
+    .isRequired,
+  unansweredQuestionIds: PropTypes.arrayOf(PropTypes.string.isRequired)
+    .isRequired,
 };
 
 export default connect(mapStateToProps)(Dashboard);

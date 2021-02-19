@@ -48,13 +48,24 @@ function mapStateToProps({ users, questions }, { id, match }) {
   };
 }
 
+Question.defaultProps = {
+  id: '',
+  author: '',
+  avatar: '',
+  text: '',
+};
+
 Question.propTypes = {
-  author: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  questionIds: PropTypes.arrayOf.isRequired,
-  id: PropTypes.string.isRequired,
-  match: PropTypes.string.isRequired,
+  author: PropTypes.string,
+  avatar: PropTypes.string,
+  text: PropTypes.string,
+  questionIds: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  id: PropTypes.string,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default withRouter(connect(mapStateToProps)(Question));
